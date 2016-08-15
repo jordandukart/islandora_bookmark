@@ -841,6 +841,10 @@ abstract class Bookmark implements BookmarkInterface {
         $params[] = $form_state['values']['bookmarks']['fieldset']['format_opts']['export_styles'][$key];
       }
     }
+    // Add the form state on the end for use in potential form alters. Doing it
+    // here as opposed to earlier to preserve the listing of parameters that
+    // existing implementations may expect.
+    $params[] = $form_state;
     call_user_func_array($form_state['islandora_bookmark_export'][$key], $params);
   }
 
