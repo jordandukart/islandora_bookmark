@@ -840,6 +840,10 @@ abstract class Bookmark implements BookmarkInterface {
       if (array_key_exists($key, $form_state['values']['bookmarks']['fieldset']['format_opts']['export_styles'])) {
         $params[] = $form_state['values']['bookmarks']['fieldset']['format_opts']['export_styles'][$key];
       }
+      // Preserve position.
+      else {
+        $params[] = NULL;
+      }
     }
     // Preserve position.
     else {
