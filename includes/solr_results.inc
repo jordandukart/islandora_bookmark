@@ -382,6 +382,10 @@ class IslandoraSolrResultsBookmark extends IslandoraSolrResults {
     if (array_key_exists($key, $form_state['values'])) {
       $params[] = $form_state['values'][$key];
     }
+    // Preserve position.
+    else {
+      $params[] = NULL;
+    }
     // Add the form state on the end for use in potential form alters. Doing it
     // here as opposed to earlier to preserve the listing of parameters that
     // existing implementations may expect.
